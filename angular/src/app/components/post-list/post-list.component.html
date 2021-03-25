@@ -1,33 +1,45 @@
-<div class="list row">
-    <div class="col-md-6">
-        <h4>Posts List</h4>
-        <ul class="list-group">
-            <li
-                    class="list-group-item"
-                    *ngFor="let post of posts; let i = index"
-                    [class.active]="i == currentIndex"
-                    (click)="setSelected(post, i)">
-
-                {{ post.title }}
-            </li>
-        </ul>
-
-        <div *ngIf="!posts || posts.length == 0">
-            List is empty <a href="/form">add new Post</a>
-        </div>
-
-        <a *ngIf="posts && posts.length > 0" class="btn btn-link" routerLink="/form">
-            Add new Post
-        </a>
+<div class="row1">
+    <div class="img-container">
+        <img class="listImg" src="assets/flow.svg">
     </div>
-    <div class="col-md-6">
+</div>
+
+<div class="row2">
+ <div class="col-md-6">
+ <h4>Liste des article </h4>
+        
+  <table class="table table-active">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Titre</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let post of posts; let i = index" (click)="setSelected(post, i)">
+        <td><li class="list-group-item" [class.active]="i == currentIndex">{{ i+1 }}</li></td>
+        <td><li class="list-group-item" [class.active]="i == currentIndex">{{ post.title }}</li></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!posts || posts.length == 0">
+     La liste est vide, <a href="/form">ajoutez un article</a>
+  </div>
+
+  <a *ngIf="posts && posts.length > 0" class="btn btn-link" routerLink="/form">
+    Nouveau article
+  </a>
+ </div>
+
+ <div class="col-md-5 ml-5">
         <div *ngIf="selected">
             <h4>Details</h4>
             <div>
-                <label><strong>Title:</strong></label> {{ selected.title }}
+                <label><strong>Titre:</strong></label> {{ selected.title }}
             </div>
             <div>
-                <label><strong>Content:</strong></label>
+                <label><strong>Contenu:</strong></label>
                 {{ selected.content }}
             </div>
             <div>
@@ -39,27 +51,28 @@
             </div>
 
             <a class="btn btn-sm btn-secondary mr-2" routerLink="/form/{{ selected.id }}">
-                Edit
+                Modifier
             </a>
 
             <button class="btn btn-sm btn-danger mr-2" (click)="deletePost()">
-                Delete
+                Supprimer
             </button>
 
-            <button
-                    class="btn btn-sm btn-warning mr-2"
-                    *ngIf="selected.id && selected.published"
-                    (click)="updatePublished(false)">
-                UnPublish
+            <button class="btn btn-sm btn-warning mr-2" *ngIf="selected.id && selected.published" (click)="updatePublished(false)">
+                Désactiver
             </button>
-            <button
-                    *ngIf="selected.id && !selected.published"
-                    class="btn btn-sm btn-warning mr-2"
-                    (click)="updatePublished(true)">
-                Publish
+            <button *ngIf="selected.id && !selected.published" class="btn btn-sm btn-warning mr-2" (click)="updatePublished(true)">
+                Publier
             </button>
         </div>
 
         <p>{{ message }}</p>
     </div>
+
+
 </div>
+
+
+
+
+

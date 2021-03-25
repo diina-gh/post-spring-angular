@@ -1,9 +1,9 @@
 <div class="row">
     <div class="edit-form col-md-6">
-        <h4>{{post.id ? 'Edit Post' : 'Create new Post'}}</h4>
+        <h4>{{post.id ? 'Modifier un article' : 'Créer un article'}}</h4>
         <form>
             <div class="form-group">
-                <label for="title">Title</label>
+                <label for="title">Titre</label>
                 <input
                         type="text"
                         class="form-control"
@@ -13,7 +13,7 @@
                 />
             </div>
             <div class="form-group">
-                <label for="content">Content</label>
+                <label for="content">Contenu</label>
                 <input
                         type="text"
                         class="form-control"
@@ -34,18 +34,18 @@
 
             <div class="form-group">
                 <label><strong>Status:</strong></label>
-                {{ post.published ? "Published" : "Pending" }}
+                {{ post.published ? "Publier" : "En attente" }}
             </div>
         </form>
 
         <button class="btn btn-secondary mr-2" routerLink="/posts">
-            << Go Back
+            << Retour
         </button>
 
         <button type="submit"
                 class="btn btn-success"
                 (click)="savePost()">
-            Save
+            Enregistrer
         </button>
     </div>
 </div>
