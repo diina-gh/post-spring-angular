@@ -8,6 +8,8 @@ import { PostListComponent } from './components/post-list/post-list.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './components/home/home.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 
 
@@ -15,7 +17,9 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     PostFormComponent,
-    PostListComponent
+    PostListComponent,
+    HomeComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

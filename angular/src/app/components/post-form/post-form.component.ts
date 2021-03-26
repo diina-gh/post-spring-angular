@@ -50,6 +50,7 @@ export class PostFormComponent implements OnInit {
     } else {
       this.createNewPost();
     }
+    this.router.navigateByUrl("posts");
   }
 
   private createNewPost() {
@@ -59,7 +60,7 @@ export class PostFormComponent implements OnInit {
       },
       (error) => {
         console.error(error);
-        this.message = 'An error occurred while saving post';
+        this.message = 'Erreur, veuillez consulter votre administrateur.';
       }
     );
   }
@@ -71,7 +72,7 @@ export class PostFormComponent implements OnInit {
       },
       (error) => {
         console.error(error);
-        this.message = 'An error occurred while saving post';
+        this.message = 'Erreur, veuillez consulter votre administrateur.';
       }
     );
   }
