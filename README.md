@@ -1,2 +1,2 @@
 # post
- Spring Boot + Angular + Postgrsql project
+ Spring Boot + Angular + Postgresql project
